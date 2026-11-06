@@ -487,7 +487,7 @@ export default function BusManagement({ students }: BusManagementProps) {
                 onChange={(e) => setClassFilter(e.target.value as any)}
                 className="px-3 py-2 bg-white border border-slate-200 rounded-xl text-xs font-semibold text-slate-700 focus:outline-none cursor-pointer"
               >
-                <option value="All">All Grades (Pre 1 - University)</option>
+                <option value="All">All Classes (Nursery 1 - SSS 3)</option>
                 {CLASSES_LIST.map(cls => (
                   <option key={cls} value={cls}>{cls}</option>
                 ))}

@@ -316,7 +316,7 @@ Submit your solutions via the Givers World Mission High School Student Portal.
               type="text" 
               value={admissionInput}
               onChange={(e) => setAdmissionInput(e.target.value)}
-              placeholder="e.g. GWM/2026/001 or PAR-3921"
+              placeholder="e.g. JCC-2024-001 or PAR-3921"
               className="w-full px-4 py-2.5 border border-slate-200 rounded-xl text-sm focus:outline-none focus:border-indigo-500 text-slate-700 placeholder-slate-400 font-mono uppercase font-bold"
               required
             />

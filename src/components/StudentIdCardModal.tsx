@@ -427,11 +427,9 @@ export default function StudentIdCardModal({ isOpen, onClose, students, initialS
                                         <p className="font-black text-indigo-600 font-mono text-[9px]">{student.admissionNumber}</p>
                                       </div>
                                       <div>
-                                        <p className="text-[7px] font-black text-slate-400 uppercase tracking-wider">
-                                          {student.universityProgram ? 'Program / Year' : 'Grade / Class'}
-                                        </p>
+                                        <p className="text-[7px] font-black text-slate-400 uppercase tracking-wider">Grade / Class</p>
                                         <p className="font-extrabold text-slate-800 truncate">
-                                          {student.currentClass} {student.universityProgram ? `(${student.universityProgram})` : ''}
+                                          {student.currentClass} {student.stream ? `(${student.stream})` : ''}
                                         </p>
                                       </div>
                                     </div>
@@ -617,11 +615,9 @@ export default function StudentIdCardModal({ isOpen, onClose, students, initialS
                                     <p className="font-black text-indigo-600 font-mono text-[9px]">{student.admissionNumber}</p>
                                   </div>
                                   <div>
-                                    <p className="text-[7px] font-black text-slate-400 uppercase tracking-wider">
-                                      {student.universityProgram ? 'Program / Year' : 'Grade / Class'}
-                                    </p>
+                                    <p className="text-[7px] font-black text-slate-400 uppercase tracking-wider">Grade / Class</p>
                                     <p className="font-extrabold text-slate-800 truncate">
-                                      {student.currentClass} {student.universityProgram ? `(${student.universityProgram})` : ''}
+                                      {student.currentClass} {student.stream ? `(${student.stream})` : ''}
                                     </p>
                                   </div>
                                 </div>

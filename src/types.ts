@@ -11,8 +11,6 @@ export type StudentClass =
 
 export type SSSStream = 'Science' | 'Arts' | 'Commercial' | 'General';
 
-export type UniversityProgram = 'Certificate' | 'Diploma';
-
 export interface Student {
   id: string;
   name: string;
@@ -21,13 +19,17 @@ export interface Student {
   gender: 'Male' | 'Female';
   currentClass: StudentClass;
   stream?: SSSStream;
-  universityProgram?: UniversityProgram; // Required for university students ('Certificate' | 'Diploma')
   classSection?: string; // e.g. "A", "B"
   parentName: string;
   parentPhone: string;
+  parentAlternativePhone?: string;
+  parentEmail?: string;
+  parentRelationship?: string; // Father, Mother, Guardian, Uncle, Aunt
   address: string;
+  previousSchool?: string;
   enrollmentYear: number;
   status: 'Active' | 'Transferred' | 'Graduated';
+  archiveStatus?: 'Active' | 'Archived' | 'Withdrawn';
   profileColor?: string;
   profileImage?: string;
   allergies?: string;
@@ -158,6 +160,9 @@ export interface Teacher {
   name: string;
   email: string;
   phone: string;
+  staffCategory?: 'Teaching' | 'Non-Teaching';
+  qualification?: string; // e.g. "B.Sc Ed, Milton Margai", "Higher Teachers Certificate (HTC)"
+  assignedClassTeacherOf?: StudentClass;
   roleTitle?: string;
   department?: string;
   bloodType?: string;
@@ -299,6 +304,69 @@ export interface NoticeSmsLog {
   carrier: string;
   status: 'Delivered' | 'Transmitted' | 'Pending';
   timestamp: string;
+}
+
+export interface SchoolClassRecord {
+  name: StudentClass;
+  tier: 'Nursery' | 'Primary' | 'JSS' | 'SSS';
+  section?: string;
+  classTeacherId?: string;
+  classTeacherName?: string;
+  capacity: number;
+  room: string;
+  stream?: SSSStream;
+}
+
+export interface DailyAttendanceRecord {
+  id: string;
+  date: string; // YYYY-MM-DD
+  className: StudentClass;
+  markedBy: string;
+  records: Array<{
+    studentId: string;
+    studentName: string;
+    status: 'Present' | 'Absent' | 'Late' | 'Excused';
+    remark?: string;
+    timeIn?: string;
+  }>;
+}
+
+export interface TimetableSlot {
+  id: string;
+  className: StudentClass;
+  dayOfWeek: 'Monday' | 'Tuesday' | 'Wednesday' | 'Thursday' | 'Friday';
+  periodNumber: number; // 1 to 7
+  startTime: string; // e.g. "08:15"
+  endTime: string;   // e.g. "09:00"
+  subject: string;
+  teacherId: string;
+  teacherName: string;
+  room?: string;
+}
+
+export interface InventoryItem {
+  id: string;
+  itemCode: string;
+  name: string;
+  category: 'Books & Curricula' | 'Classroom Furniture' | 'Science & ICT Equipment' | 'Sports & Facilities' | 'Administrative Assets';
+  quantity: number;
+  unit: string;
+  condition: 'Excellent' | 'Good' | 'Needs Repair' | 'Damaged';
+  location: string;
+  assignedTo?: string;
+  purchaseDate?: string;
+  unitValueSLE: number;
+  status: 'In Stock' | 'Allocated' | 'In Maintenance';
+}
+
+export interface SchoolSystemSettings {
+  academicYear: string; // "2025/2026"
+  currentTerm: 1 | 2 | 3;
+  termStartDate: string;
+  termEndDate: string;
+  currencyCode: string; // "SLE"
+  allowLateRegistration: boolean;
+  enableSmsNotifications: boolean;
 }
 
 

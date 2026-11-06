@@ -41,8 +41,8 @@ export const SCHOOL_INFO = {
  */
 export const DEMO_SAMPLE_STUDENTS: Student[] = [
   {
-    id: 'GWM-2024-001',
-    admissionNumber: 'GWM-2024-001',
+    id: 'JCC-2024-001',
+    admissionNumber: 'JCC-2024-001',
     name: 'Mohamed Santigie Kamara',
     dateOfBirth: '2008-04-12',
     gender: 'Male',
@@ -65,8 +65,8 @@ export const DEMO_SAMPLE_STUDENTS: Student[] = [
     verifiedAt: '2024-09-15T09:00:00Z',
   },
   {
-    id: 'GWM-2024-002',
-    admissionNumber: 'GWM-2024-002',
+    id: 'JCC-2024-002',
+    admissionNumber: 'JCC-2024-002',
     name: 'Fatmata Binta Sesay',
     dateOfBirth: '2009-08-23',
     gender: 'Female',
@@ -89,8 +89,8 @@ export const DEMO_SAMPLE_STUDENTS: Student[] = [
     verifiedAt: '2024-09-15T09:10:00Z',
   },
   {
-    id: 'GWM-2024-003',
-    admissionNumber: 'GWM-2024-003',
+    id: 'JCC-2024-003',
+    admissionNumber: 'JCC-2024-003',
     name: 'Ibrahim Sorie Bangura',
     dateOfBirth: '2010-11-05',
     gender: 'Male',
@@ -112,8 +112,8 @@ export const DEMO_SAMPLE_STUDENTS: Student[] = [
     verifiedAt: '2024-09-15T09:20:00Z',
   },
   {
-    id: 'GWM-2024-004',
-    admissionNumber: 'GWM-2024-004',
+    id: 'JCC-2024-004',
+    admissionNumber: 'JCC-2024-004',
     name: 'Mariama Kadiatu Mansaray',
     dateOfBirth: '2013-02-18',
     gender: 'Female',
@@ -135,8 +135,8 @@ export const DEMO_SAMPLE_STUDENTS: Student[] = [
     verifiedAt: '2024-09-15T09:30:00Z',
   },
   {
-    id: 'GWM-2024-005',
-    admissionNumber: 'GWM-2024-005',
+    id: 'JCC-2024-005',
+    admissionNumber: 'JCC-2024-005',
     name: 'Alpha Oumar Koroma',
     dateOfBirth: '2015-06-30',
     gender: 'Male',
@@ -158,8 +158,8 @@ export const DEMO_SAMPLE_STUDENTS: Student[] = [
     verifiedAt: '2024-09-15T09:40:00Z',
   },
   {
-    id: 'GWM-2024-006',
-    admissionNumber: 'GWM-2024-006',
+    id: 'JCC-2024-006',
+    admissionNumber: 'JCC-2024-006',
     name: 'Zainab Aminata Turay',
     dateOfBirth: '2019-09-14',
     gender: 'Female',
@@ -181,8 +181,8 @@ export const DEMO_SAMPLE_STUDENTS: Student[] = [
     verifiedAt: '2024-09-15T09:50:00Z',
   },
   {
-    id: 'GWM-2024-007',
-    admissionNumber: 'GWM-2024-007',
+    id: 'JCC-2024-007',
+    admissionNumber: 'JCC-2024-007',
     name: 'Abu Bakarr Conteh',
     dateOfBirth: '2008-03-20',
     gender: 'Male',
@@ -205,8 +205,8 @@ export const DEMO_SAMPLE_STUDENTS: Student[] = [
     verifiedAt: '2024-09-15T10:00:00Z',
   },
   {
-    id: 'GWM-2024-008',
-    admissionNumber: 'GWM-2024-008',
+    id: 'JCC-2024-008',
+    admissionNumber: 'JCC-2024-008',
     name: 'Melvina Josephine Kargbo',
     dateOfBirth: '2007-12-10',
     gender: 'Female',
@@ -237,7 +237,7 @@ export const INITIAL_STUDENTS: Student[] = [];
  */
 export const DEMO_SAMPLE_ACADEMIC_RECORDS: StudentAcademicRecord[] = [
   {
-    studentId: 'GWM-2024-001',
+    studentId: 'JCC-2024-001',
     academicYear: '2025/2026',
     terms: {
       1: {
@@ -285,7 +285,7 @@ export const DEMO_SAMPLE_ACADEMIC_RECORDS: StudentAcademicRecord[] = [
     }
   },
   {
-    studentId: 'GWM-2024-002',
+    studentId: 'JCC-2024-002',
     academicYear: '2025/2026',
     terms: {
       1: {
@@ -330,7 +330,7 @@ export const DEMO_SAMPLE_ACADEMIC_RECORDS: StudentAcademicRecord[] = [
     }
   },
   {
-    studentId: 'GWM-2024-003',
+    studentId: 'JCC-2024-003',
     academicYear: '2025/2026',
     terms: {
       1: {
@@ -375,7 +375,7 @@ export const DEMO_SAMPLE_ACADEMIC_RECORDS: StudentAcademicRecord[] = [
     }
   },
   {
-    studentId: 'GWM-2024-004',
+    studentId: 'JCC-2024-004',
     academicYear: '2025/2026',
     terms: {
       1: {
@@ -425,7 +425,7 @@ export const INITIAL_ACADEMIC_RECORDS: StudentAcademicRecord[] = [];
  */
 export const DEMO_SAMPLE_NATIONAL_EXAMS: NationalExamPrep[] = [
   {
-    studentId: 'GWM-2024-001',
+    studentId: 'JCC-2024-001',
     examType: 'WASSCE',
     registered: true,
     indexNumber: 'WAEC-2025-00412-001',
@@ -438,10 +438,10 @@ export const DEMO_SAMPLE_NATIONAL_EXAMS: NationalExamPrep[] = [
       { subject: 'ICT', mockScore: 96, grade: 'A1', status: 'Ready' }
     ],
     totalScore: 6, // 6 Credits / Distinctions
-    recommendation: 'Cleared for university direct admissions in Engineering / Medicine.'
+    recommendation: 'Cleared for tertiary & higher education admissions in Engineering / Medicine with distinction.'
   },
   {
-    studentId: 'GWM-2024-003',
+    studentId: 'JCC-2024-003',
     examType: 'BECE',
     registered: true,
     indexNumber: 'BECE-2025-00412-014',
@@ -456,7 +456,7 @@ export const DEMO_SAMPLE_NATIONAL_EXAMS: NationalExamPrep[] = [
     recommendation: 'Recommended for placement in SSS 1 Pure Science or Commercial stream.'
   },
   {
-    studentId: 'GWM-2024-004',
+    studentId: 'JCC-2024-004',
     examType: 'NPSE',
     registered: true,
     indexNumber: 'NPSE-2025-00412-045',
@@ -470,7 +470,7 @@ export const DEMO_SAMPLE_NATIONAL_EXAMS: NationalExamPrep[] = [
     recommendation: 'Distinction score placement; automatically admitted to JSS 1.'
   },
   {
-    studentId: 'GWM-2024-008',
+    studentId: 'JCC-2024-008',
     examType: 'WASSCE',
     registered: true,
     indexNumber: 'WAEC-2025-00412-022',
@@ -493,7 +493,7 @@ export const INITIAL_NATIONAL_EXAMS: NationalExamPrep[] = [];
  */
 export const DEMO_SAMPLE_FEE_LEDGERS: StudentFeeLedger[] = [
   {
-    studentId: 'GWM-2024-001',
+    studentId: 'JCC-2024-001',
     academicYear: '2025/2026',
     terms: {
       1: {
@@ -526,7 +526,7 @@ export const DEMO_SAMPLE_FEE_LEDGERS: StudentFeeLedger[] = [
     }
   },
   {
-    studentId: 'GWM-2024-002',
+    studentId: 'JCC-2024-002',
     academicYear: '2025/2026',
     terms: {
       1: {
@@ -559,7 +559,7 @@ export const DEMO_SAMPLE_FEE_LEDGERS: StudentFeeLedger[] = [
     }
   },
   {
-    studentId: 'GWM-2024-003',
+    studentId: 'JCC-2024-003',
     academicYear: '2025/2026',
     terms: {
       1: {
@@ -592,7 +592,7 @@ export const DEMO_SAMPLE_FEE_LEDGERS: StudentFeeLedger[] = [
     }
   },
   {
-    studentId: 'GWM-2024-004',
+    studentId: 'JCC-2024-004',
     academicYear: '2025/2026',
     terms: {
       1: {
@@ -641,9 +641,12 @@ export const DEMO_SAMPLE_TEACHERS: Teacher[] = [
     phone: '(076) 865166',
     roleTitle: 'Director and Principal',
     department: 'Administration & Leadership',
+    staffCategory: 'Teaching',
+    qualification: 'M.Ed. Educational Leadership, B.Sc. Education (Njala)',
     bloodType: 'O+',
     subjects: ['Christian Religious Studies', 'Moral Leadership'],
     classes: ['SSS 2', 'SSS 3'],
+    assignedClassTeacherOf: 'SSS 3',
     salary: 8500,
     hireDate: '2000-09-01',
     payrollStatus: 'Paid',
@@ -660,9 +663,12 @@ export const DEMO_SAMPLE_TEACHERS: Teacher[] = [
     phone: '+232 76 987654',
     roleTitle: 'Vice Principal & Head of Languages',
     department: 'Languages & Humanities',
+    staffCategory: 'Teaching',
+    qualification: 'B.A. (Hons) English Education (FBC)',
     bloodType: 'A+',
     subjects: ['English Language', 'Literature in English'],
     classes: ['SSS 1', 'SSS 2', 'SSS 3'],
+    assignedClassTeacherOf: 'SSS 2',
     salary: 6200,
     hireDate: '2005-01-15',
     payrollStatus: 'Paid',
@@ -679,9 +685,12 @@ export const DEMO_SAMPLE_TEACHERS: Teacher[] = [
     phone: '+232 78 334455',
     roleTitle: 'Head of Sciences',
     department: 'Pure & Applied Sciences',
+    staffCategory: 'Teaching',
+    qualification: 'B.Sc. Chemistry & Physics Education (Njala)',
     bloodType: 'B+',
     subjects: ['Physics', 'Chemistry', 'Integrated Science'],
     classes: ['JSS 3', 'SSS 2', 'SSS 3'],
+    assignedClassTeacherOf: 'SSS 1',
     salary: 5800,
     hireDate: '2012-09-10',
     payrollStatus: 'Paid',
@@ -698,13 +707,144 @@ export const DEMO_SAMPLE_TEACHERS: Teacher[] = [
     phone: '+232 77 112233',
     roleTitle: 'ICT & Mathematics Coordinator',
     department: 'Technology & Mathematics',
+    staffCategory: 'Teaching',
+    qualification: 'B.Sc. Computer Science & Mathematics (MMTU)',
     bloodType: 'O+',
     subjects: ['Mathematics', 'Computer Studies (ICT)'],
     classes: ['JSS 1', 'JSS 2', 'SSS 1', 'SSS 2', 'SSS 3'],
+    assignedClassTeacherOf: 'JSS 3',
     salary: 5600,
     hireDate: '2016-03-01',
     payrollStatus: 'Paid',
     accessCode: 'TCH-4004',
+    verified: true,
+    verifiedBy: 'Jonathan Davis',
+    verifiedAt: '2024-09-01T08:00:00Z'
+  },
+  {
+    id: 'tch-005',
+    staffId: 'STAFF-JCC-005',
+    name: 'Madam Isatu Koroma',
+    email: 'isatu.koroma@jonathanschildcare.org',
+    phone: '+232 79 443322',
+    roleTitle: 'Head of Early Childhood (Nursery)',
+    department: 'Early Childhood Education',
+    staffCategory: 'Teaching',
+    qualification: 'Higher Teachers Certificate (HTC Primary, Bo Teachers College)',
+    bloodType: 'A+',
+    subjects: ['Early Literacy', 'Numeracy Play', 'Rhymes & Art'],
+    classes: ['Nursery 1', 'Nursery 2', 'Nursery 3'],
+    assignedClassTeacherOf: 'Nursery 3',
+    salary: 4900,
+    hireDate: '2015-08-20',
+    payrollStatus: 'Paid',
+    accessCode: 'TCH-5005',
+    verified: true,
+    verifiedBy: 'Jonathan Davis',
+    verifiedAt: '2024-09-01T08:00:00Z'
+  },
+  {
+    id: 'tch-006',
+    staffId: 'STAFF-JCC-006',
+    name: 'Mr. David Mansaray',
+    email: 'david.mansaray@jonathanschildcare.org',
+    phone: '+232 76 654321',
+    roleTitle: 'Primary Section Head & Class 6 Teacher',
+    department: 'Primary Education',
+    staffCategory: 'Teaching',
+    qualification: 'B.Ed. Primary Education (Njala)',
+    bloodType: 'O-',
+    subjects: ['Verbal Aptitude', 'Quantitative Aptitude', 'General Science'],
+    classes: ['Primary 5', 'Primary 6'],
+    assignedClassTeacherOf: 'Primary 6',
+    salary: 5200,
+    hireDate: '2014-09-01',
+    payrollStatus: 'Paid',
+    accessCode: 'TCH-6006',
+    verified: true,
+    verifiedBy: 'Jonathan Davis',
+    verifiedAt: '2024-09-01T08:00:00Z'
+  },
+  {
+    id: 'tch-007',
+    staffId: 'STAFF-JCC-007',
+    name: 'Mr. Emmanuel Bio',
+    email: 'bursary@jonathanschildcare.org',
+    phone: '+232 78 901234',
+    roleTitle: 'School Bursar & Financial Controller',
+    department: 'Finance & Accounts',
+    staffCategory: 'Non-Teaching',
+    qualification: 'B.Sc. Accounting & Finance (FBC), ACCA Part II',
+    bloodType: 'B+',
+    subjects: [],
+    classes: [],
+    salary: 6000,
+    hireDate: '2018-02-15',
+    payrollStatus: 'Paid',
+    accessCode: 'STF-7007',
+    verified: true,
+    verifiedBy: 'Jonathan Davis',
+    verifiedAt: '2024-09-01T08:00:00Z'
+  },
+  {
+    id: 'tch-008',
+    staffId: 'STAFF-JCC-008',
+    name: 'Nurse Aminata Conteh',
+    email: 'clinic@jonathanschildcare.org',
+    phone: '+232 77 889900',
+    roleTitle: 'School Matron & Health Officer',
+    department: 'Health & Student Wellness',
+    staffCategory: 'Non-Teaching',
+    qualification: 'State Registered Nurse (SRN, Bo School of Nursing)',
+    bloodType: 'O+',
+    subjects: [],
+    classes: [],
+    salary: 4500,
+    hireDate: '2019-10-01',
+    payrollStatus: 'Paid',
+    accessCode: 'STF-8008',
+    verified: true,
+    verifiedBy: 'Jonathan Davis',
+    verifiedAt: '2024-09-01T08:00:00Z'
+  },
+  {
+    id: 'tch-009',
+    staffId: 'STAFF-JCC-009',
+    name: 'Mr. Mohamed Fofanah',
+    email: 'registry@jonathanschildcare.org',
+    phone: '+232 76 114477',
+    roleTitle: 'Senior Administrative Secretary & IT Registrar',
+    department: 'Registry & Secretarial Affairs',
+    staffCategory: 'Non-Teaching',
+    qualification: 'Diploma in Information Systems & Secretarial Studies',
+    bloodType: 'A+',
+    subjects: [],
+    classes: [],
+    salary: 4300,
+    hireDate: '2020-01-10',
+    payrollStatus: 'Paid',
+    accessCode: 'STF-9009',
+    verified: true,
+    verifiedBy: 'Jonathan Davis',
+    verifiedAt: '2024-09-01T08:00:00Z'
+  },
+  {
+    id: 'tch-010',
+    staffId: 'STAFF-JCC-010',
+    name: 'Mr. Samuel Tarawally',
+    email: 'facilities@jonathanschildcare.org',
+    phone: '+232 79 336699',
+    roleTitle: 'Head of Facilities & Logistics',
+    department: 'Campus Security & Facilities',
+    staffCategory: 'Non-Teaching',
+    qualification: 'Certificate in Facilities Management & Occupational Safety',
+    bloodType: 'AB+',
+    subjects: [],
+    classes: [],
+    salary: 3800,
+    hireDate: '2017-06-01',
+    payrollStatus: 'Paid',
+    accessCode: 'STF-1010',
     verified: true,
     verifiedBy: 'Jonathan Davis',
     verifiedAt: '2024-09-01T08:00:00Z'
@@ -747,7 +887,7 @@ export const DEMO_SAMPLE_SUBMISSIONS: Submission[] = [
   {
     id: 'sub-001',
     assignmentId: 'asg-001',
-    studentId: 'GWM-2024-001',
+    studentId: 'JCC-2024-001',
     studentName: 'Mohamed Santigie Kamara',
     className: 'SSS 3',
     submittedAt: '2026-10-02T10:30:00Z',

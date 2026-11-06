@@ -53,15 +53,14 @@ export interface ClassTermPerformance {
 // Canonical ordering of Sierra Leone curriculum classes
 const ORDERED_CLASSES: StudentClass[] = [
   'Nursery 1', 'Nursery 2', 'Nursery 3',
-  'Class 1', 'Class 2', 'Class 3', 'Class 4', 'Class 5', 'Class 6',
+  'Primary 1', 'Primary 2', 'Primary 3', 'Primary 4', 'Primary 5', 'Primary 6',
   'JSS 1', 'JSS 2', 'JSS 3',
-  'SSS 1', 'SSS 2', 'SSS 3',
-  'University Year 1', 'University Year 2', 'University Year 3', 'University Year 4'
+  'SSS 1', 'SSS 2', 'SSS 3'
 ];
 
 export default function PerformanceTrendsCard({ records, students, onNavigate }: PerformanceTrendsCardProps) {
   const [chartType, setChartType] = useState<'bar' | 'line'>('bar');
-  const [tierFilter, setTierFilter] = useState<'all' | 'primary' | 'jss' | 'sss' | 'uni'>('all');
+  const [tierFilter, setTierFilter] = useState<'all' | 'nursery' | 'primary' | 'jss' | 'sss'>('all');
 
   // Compute average performance per class across Terms 1, 2, and 3
   const classPerformanceData = useMemo<ClassTermPerformance[]>(() => {
@@ -114,7 +113,7 @@ export default function PerformanceTrendsCard({ records, students, onNavigate }:
       const delta = (t1 > 0 && t3 > 0) ? Number((t3 - t1).toFixed(1)) : 0;
 
       // Make short display name for mobile readability
-      const shortName = (cls || '').replace('Class ', 'C').replace('Nursery ', 'Nur ').replace('University ', 'Uni ');
+      const shortName = (cls || '').replace('Primary ', 'P').replace('Nursery ', 'Nur ');
 
       return {
         className: cls,
@@ -131,17 +130,17 @@ export default function PerformanceTrendsCard({ records, students, onNavigate }:
 
   // Filtered by tier
   const filteredData = useMemo(() => {
+    if (tierFilter === 'nursery') {
+      return classPerformanceData.filter(d => d.className.startsWith('Nur'));
+    }
     if (tierFilter === 'primary') {
-      return classPerformanceData.filter(d => d.className.startsWith('Class') || d.className.startsWith('Nur'));
+      return classPerformanceData.filter(d => d.className.startsWith('Primary') || d.className.startsWith('Class'));
     }
     if (tierFilter === 'jss') {
       return classPerformanceData.filter(d => d.className.startsWith('JSS'));
     }
     if (tierFilter === 'sss') {
       return classPerformanceData.filter(d => d.className.startsWith('SSS'));
-    }
-    if (tierFilter === 'uni') {
-      return classPerformanceData.filter(d => d.className.startsWith('University'));
     }
     return classPerformanceData;
   }, [classPerformanceData, tierFilter]);
@@ -215,18 +214,18 @@ export default function PerformanceTrendsCard({ records, students, onNavigate }:
         <div className="flex flex-wrap items-center gap-2 self-start sm:self-auto">
           {/* Tier Tabs */}
           <div className="flex items-center bg-slate-100 dark:bg-slate-800 p-1 rounded-xl text-xs font-semibold">
-            {(['all', 'primary', 'jss', 'sss', 'uni'] as const).map(tier => (
+            {(['all', 'nursery', 'primary', 'jss', 'sss'] as const).map(tier => (
               <button
                 key={tier}
                 type="button"
                 onClick={() => setTierFilter(tier)}
                 className={`px-2.5 py-1 rounded-lg transition-all cursor-pointer ${
                   tierFilter === tier
-                    ? 'bg-white dark:bg-slate-900 text-indigo-600 dark:text-indigo-400 font-bold shadow-2xs'
+                    ? 'bg-white dark:bg-slate-900 text-teal-600 dark:text-teal-400 font-bold shadow-2xs'
                     : 'text-slate-500 hover:text-slate-800 dark:hover:text-slate-200'
                 }`}
               >
-                {tier === 'all' ? 'All' : tier === 'uni' ? 'UNI' : tier.toUpperCase()}
+                {tier === 'all' ? 'All' : tier === 'nursery' ? 'NUR' : tier.toUpperCase()}
               </button>
             ))}
           </div>

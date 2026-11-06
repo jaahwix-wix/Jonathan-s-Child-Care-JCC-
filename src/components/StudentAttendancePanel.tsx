@@ -43,7 +43,7 @@ export default function StudentAttendancePanel({ students }: StudentAttendancePa
     return `${d.getFullYear()}-${month}-${day}`;
   });
   
-  const [selectedClass, setSelectedClass] = useState<StudentClass>('Class 1');
+  const [selectedClass, setSelectedClass] = useState<StudentClass>('Primary 1');
   const [searchStudentTerm, setSearchStudentTerm] = useState('');
   
   // 2. Attendance database state

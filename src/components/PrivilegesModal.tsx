@@ -428,7 +428,7 @@ export default function PrivilegesModal({ isOpen, onClose }: PrivilegesModalProp
         <div className="p-4 sm:px-6 bg-slate-50 dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between shrink-0">
           <div className="text-xs text-slate-500 dark:text-slate-400 flex items-center gap-2">
             <Shield className="w-4 h-4 text-indigo-500" />
-            <span>Givers World Mission School RBAC Engine</span>
+            <span>Jonathan's Child Care (JCC) Security & RBAC Engine</span>
           </div>
           <button
             type="button"

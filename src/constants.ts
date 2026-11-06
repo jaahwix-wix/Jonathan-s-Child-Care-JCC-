@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { StudentClass, SSSStream, UniversityProgram } from './types';
+import { StudentClass, SSSStream } from './types';
 
 export const CLASSES_LIST: StudentClass[] = [
   'Nursery 1', 'Nursery 2', 'Nursery 3',
@@ -56,24 +56,9 @@ export function getTierForClass(className: string): SchoolTier {
   return 'Primary';
 }
 
-export const UNIVERSITY_PROGRAMS: { id: UniversityProgram; label: string; description: string; duration: string }[] = [
-  { 
-    id: 'Certificate', 
-    label: 'Certificate Program', 
-    description: 'Foundational vocational, technical, or specialized higher education certificate', 
-    duration: '1 - 2 Years' 
-  },
-  { 
-    id: 'Diploma', 
-    label: 'Diploma Program', 
-    description: 'Undergraduate academic diploma conferring specialized professional qualification', 
-    duration: '2 - 3 Years' 
-  }
-];
-
 export const SSS_STREAMS: SSSStream[] = ['Science', 'Arts', 'Commercial', 'General'];
 
-// Subject lists specific to Sierra Leone and Tertiary educational levels
+// Subject lists specific to Sierra Leone educational levels (Nursery, Primary, JSS, SSS)
 export const LEVEL_SUBJECTS = {
   PRE_SCHOOL: [
     'Early Numeracy',
@@ -148,58 +133,6 @@ export const LEVEL_SUBJECTS = {
     'Office Practice',
     'Civic Education',
     'Geography'
-  ],
-  UNIVERSITY_GENERAL: [
-    'Research Methodology & Academic Writing',
-    'Digital Technology & Data Literacy',
-    'Critical Thinking & Logic',
-    'Applied Statistics & Quantitative Methods',
-    'Communication & Public Rhetoric',
-    'Leadership, Ethics & Governance',
-    'Entrepreneurship & Innovation'
-  ],
-  UNIVERSITY_SCIENCE: [
-    'Advanced Research & Quantitative Analysis',
-    'Computer Systems & Software Design',
-    'Applied Data Science & Statistics',
-    'Applied Science & Environmental Systems',
-    'Technical Report Writing',
-    'Science Policy & Professional Ethics',
-    'Specialized Laboratory Practicum'
-  ],
-  UNIVERSITY_COMMERCIAL: [
-    'Corporate Finance & Investment Analysis',
-    'Strategic Management & Leadership',
-    'Managerial Accounting & Auditing',
-    'Econometrics & Market Analytics',
-    'Commercial Law & Corporate Governance',
-    'Business Decision Modeling'
-  ],
-  UNIVERSITY_ARTS: [
-    'International Relations & Diplomacy',
-    'Public Policy & Administrative Law',
-    'Advanced Literature & Critical Discourse',
-    'African History & Global Development',
-    'Applied Sociological Field Research',
-    'Professional Ethics & Civic Leadership'
-  ],
-  UNIVERSITY_CERTIFICATE: [
-    'Fundamentals of Information Technology',
-    'Applied Business Communication & Technical Writing',
-    'Introduction to Management & Entrepreneurship',
-    'Applied Mathematics & Quantitative Problem Solving',
-    'Digital Workplace Productivity Tools',
-    'Professional Ethics & Civic Leadership',
-    'Practical Vocational Practicum & Capstone'
-  ],
-  UNIVERSITY_DIPLOMA: [
-    'Advanced Research Methodology & Academic Inquiry',
-    'Strategic Organizational Leadership & Management',
-    'Applied Information Systems & Database Technologies',
-    'Financial Accounting, Auditing & Resource Control',
-    'Public Administration, Policy & Administrative Law',
-    'Professional Internship Practicum & Project Thesis',
-    'Specialized Professional Studies & Fieldwork'
   ]
 };
 
@@ -252,15 +185,6 @@ export const PRIMARY_GRADING_SCALE: GradeScale[] = [
   { minScore: 81, grade: 'B', remark: 'Very Good', isCredit: true, color: 'text-teal-600 bg-teal-50 border-teal-200' },
   { minScore: 65, grade: 'C', remark: 'Credit', isCredit: true, color: 'text-sky-600 bg-sky-50 border-sky-200' },
   { minScore: 0, grade: 'F', remark: 'Fail', isCredit: false, color: 'text-rose-600 bg-rose-50 border-rose-200' }
-];
-
-export const UNIVERSITY_GRADING_SCALE: GradeScale[] = [
-  { minScore: 80, grade: 'A', remark: 'First Class Honors (GPA 4.0)', isCredit: true, color: 'text-emerald-600 bg-emerald-50 border-emerald-200' },
-  { minScore: 70, grade: 'B+', remark: 'Second Class Upper (GPA 3.5)', isCredit: true, color: 'text-teal-600 bg-teal-50 border-teal-200' },
-  { minScore: 60, grade: 'B', remark: 'Second Class Lower (GPA 3.0)', isCredit: true, color: 'text-sky-600 bg-sky-50 border-sky-200' },
-  { minScore: 50, grade: 'C', remark: 'Third Class / Pass (GPA 2.0)', isCredit: true, color: 'text-indigo-600 bg-indigo-50 border-indigo-200' },
-  { minScore: 45, grade: 'D', remark: 'Pass (GPA 1.5)', isCredit: false, color: 'text-amber-600 bg-amber-50 border-amber-200' },
-  { minScore: 0, grade: 'F', remark: 'Fail (GPA 0.0)', isCredit: false, color: 'text-rose-600 bg-rose-50 border-rose-200' }
 ];
 
 export function getGradingScale(className: StudentClass): GradeScale[] {

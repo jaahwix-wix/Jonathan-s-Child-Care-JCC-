@@ -188,9 +188,7 @@ export default function FeeAlertSMSCenter({
     term: number,
     template: string
   ): string => {
-    const classDisplay = student.universityProgram
-      ? `${student.currentClass} (${student.universityProgram})`
-      : student.currentClass;
+    const classDisplay = student.currentClass;
 
     return template
       .replace(/{GUARDIAN}/g, student.parentName || 'Guardian')
@@ -264,7 +262,7 @@ export default function FeeAlertSMSCenter({
     const url = URL.createObjectURL(blob);
     const link = document.createElement('a');
     link.setAttribute('href', url);
-    link.setAttribute('download', `GWDA_Tuition_SMS_Dispatch_Term${selectedTerm}_${new Date().toISOString().split('T')[0]}.csv`);
+    link.setAttribute('download', `JCC_Tuition_SMS_Dispatch_Term${selectedTerm}_${new Date().toISOString().split('T')[0]}.csv`);
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -778,11 +776,6 @@ export default function FeeAlertSMSCenter({
                               <span className="px-2 py-0.5 rounded-md text-[10px] font-extrabold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">
                                 {s.currentClass}
                               </span>
-                              {s.universityProgram && (
-                                <span className="ml-1 px-1.5 py-0.5 rounded text-[9px] font-bold bg-purple-100 dark:bg-purple-950/60 text-purple-700 dark:text-purple-300 border border-purple-200 dark:border-purple-800">
-                                  {s.universityProgram}
-                                </span>
-                              )}
                             </td>
 
                             <td className="py-3 px-3">

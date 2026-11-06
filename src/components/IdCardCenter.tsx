@@ -138,12 +138,10 @@ export default function IdCardCenter({ students, onNavigate, initialSelection }:
       
       let matchesTier = true;
       if (tierFilter !== 'All') {
-        if (tierFilter === 'Pre-School') matchesTier = s.currentClass.startsWith('Pre');
-        else if (tierFilter === 'Nursery') matchesTier = s.currentClass.startsWith('Nursery') || s.currentClass.startsWith('Prep');
-        else if (tierFilter === 'Primary') matchesTier = s.currentClass.startsWith('Class');
+        if (tierFilter === 'Nursery') matchesTier = s.currentClass.startsWith('Nursery');
+        else if (tierFilter === 'Primary') matchesTier = s.currentClass.startsWith('Primary');
         else if (tierFilter === 'JSS') matchesTier = s.currentClass.startsWith('JSS');
         else if (tierFilter === 'SSS') matchesTier = s.currentClass.startsWith('SSS');
-        else if (tierFilter === 'University') matchesTier = s.currentClass.startsWith('University');
         else matchesTier = s.currentClass === tierFilter;
       }
 
@@ -559,14 +557,14 @@ export default function IdCardCenter({ students, onNavigate, initialSelection }:
             <p className="text-slate-300 flex items-center gap-2">
               <span>Hotline: <strong>{SCHOOL_INFO.phone}</strong></span>
               <span>•</span>
-              <span>Parent/Staff Helpline: <strong>+232 76 345678</strong></span>
+              <span>Parent/Staff Helpline: <strong>(076) 865166</strong></span>
             </p>
           </div>
 
           {/* Verification Barcode & Serial */}
           <div className="border-t border-slate-800 pt-2 flex items-center justify-between">
             <div>
-              <span className="text-[7.5px] text-slate-400 block font-mono">SERIAL NO: GWM-SEC-2026-SL</span>
+              <span className="text-[7.5px] text-slate-400 block font-mono">SERIAL NO: JCC-SEC-2026-SL</span>
               <span className="text-[7.5px] text-emerald-400 font-bold block">✓ ENCRYPTED BIOMETRIC SECURE</span>
             </div>
             <div className="text-right">
@@ -746,12 +744,10 @@ export default function IdCardCenter({ students, onNavigate, initialSelection }:
                     className="w-full px-3 py-1.5 bg-slate-50 border border-slate-200 rounded-xl text-xs font-semibold text-slate-700 focus:outline-none cursor-pointer"
                   >
                     <option value="All">All Academic Tiers</option>
-                    <option value="Pre-School">Pre-School (Pre 1 - 3)</option>
-                    <option value="Nursery">Nursery / Prep (1 - 3)</option>
-                    <option value="Primary">Primary (Class 1 - 6)</option>
+                    <option value="Nursery">Nursery (Nursery 1 - 3)</option>
+                    <option value="Primary">Primary (Primary 1 - 6)</option>
                     <option value="JSS">Junior Secondary (JSS 1 - 3)</option>
                     <option value="SSS">Senior Secondary (SSS 1 - 3)</option>
-                    <option value="University">University Degrees (Year 1 - 4)</option>
                   </select>
                 </div>
               ) : (

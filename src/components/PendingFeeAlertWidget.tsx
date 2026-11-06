@@ -274,11 +274,6 @@ export default function PendingFeeAlertWidget({
                       <span className="text-[10px] font-semibold text-slate-500 dark:text-slate-400 bg-white dark:bg-slate-800 px-1.5 py-0.2 rounded border border-slate-200 dark:border-slate-700">
                         {student.currentClass}
                       </span>
-                      {student.universityProgram && (
-                        <span className="text-[9px] font-bold text-purple-700 dark:text-purple-300 bg-purple-50 dark:bg-purple-950/60 px-1.5 py-0.2 rounded border border-purple-200 dark:border-purple-800">
-                          {student.universityProgram}
-                        </span>
-                      )}
                       <span className={`text-[9px] font-bold px-1.5 py-0.2 rounded-full uppercase ${
                         status === 'Unpaid' 
                           ? 'bg-rose-100 dark:bg-rose-950/70 text-rose-700 dark:text-rose-300 border border-rose-200 dark:border-rose-900' 

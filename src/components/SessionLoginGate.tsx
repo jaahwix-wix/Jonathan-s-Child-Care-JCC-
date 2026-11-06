@@ -61,41 +61,41 @@ export default function SessionLoginGate({ onUnlock }: SessionLoginGateProps) {
   const accounts: { role: UserRole; title: string; name: string; email: string; icon: any; color: string }[] = [
     {
       role: 'admin',
-      title: 'Super Admin / Principal',
-      name: 'Evangelist Saint Turay',
-      email: 'principal.givers@school.edu.sl',
+      title: 'Director and Principal',
+      name: 'Jonathan Davis',
+      email: 'jonathan.davis@jonathanschildcare.org',
       icon: Shield,
-      color: 'indigo'
+      color: 'teal'
     },
     {
       role: 'teacher',
-      title: 'Senior Teacher / Academics',
-      name: 'Mrs. Fatmata Turay',
-      email: 'mrs.turay.academics@school.edu.sl',
+      title: 'Vice Principal & Academics',
+      name: 'Mrs. Fatmata Sesay',
+      email: 'fatmata.sesay@jonathanschildcare.org',
       icon: GraduationCap,
       color: 'emerald'
     },
     {
       role: 'bursar',
-      title: 'Bursar / Financial Officer',
-      name: 'Mr. Alie Sesay',
-      email: 'bursar.sesay@school.edu.sl',
+      title: 'School Bursar & Financial Controller',
+      name: 'Mr. Emmanuel Bio',
+      email: 'bursary@jonathanschildcare.org',
       icon: CreditCard,
       color: 'amber'
     },
     {
       role: 'transport',
-      title: 'Logistics & Fleet Officer',
-      name: 'Mr. Ibrahim Kamara',
-      email: 'transport.kamara@school.edu.sl',
+      title: 'Facilities & Logistics Officer',
+      name: 'Mr. Samuel Tarawally',
+      email: 'facilities@jonathanschildcare.org',
       icon: Bus,
       color: 'blue'
     },
     {
       role: 'student_parent',
       title: 'Student & Guardian Portal',
-      name: 'Mustapha Koroma (SMA-2023-0142)',
-      email: 'student.portal@school.edu.sl',
+      name: 'Mohamed Santigie Kamara (JCC-2024-001)',
+      email: 'parent.portal@jonathanschildcare.org',
       icon: BookOpen,
       color: 'purple'
     }

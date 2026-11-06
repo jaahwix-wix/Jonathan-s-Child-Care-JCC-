@@ -25,11 +25,13 @@ import {
   Send,
   Smartphone,
   CloudUpload,
-  CheckCircle
+  CheckCircle,
+  Printer
 } from 'lucide-react';
 import { Student, StudentFeeLedger, FeeTransaction } from '../types';
 import { motion, AnimatePresence } from 'motion/react';
 import FeeAlertSMSCenter from './FeeAlertSMSCenter';
+import OfficialReceiptModal, { ReceiptData } from './OfficialReceiptModal';
 import { batchSaveToFirestore } from '../services/firestoreSync';
 
 interface FinancialsProps {
@@ -88,6 +90,9 @@ export default function Financials({ students, fees, onAddTransaction, initialSt
   const [paymentMethod, setPaymentMethod] = useState<'Bank Deposit' | 'Orange Money' | 'Africell Money' | 'Cash'>('Orange Money');
   const [paymentReceipt, setPaymentReceipt] = useState('');
   const [paymentError, setPaymentError] = useState<string | null>(null);
+
+  // Official Printable Receipt Modal State
+  const [selectedReceiptForPrint, setSelectedReceiptForPrint] = useState<ReceiptData | null>(null);
 
   // SMS Alert Center State
   const [isSmsModalOpen, setIsSmsModalOpen] = useState(false);
@@ -171,12 +176,10 @@ export default function Financials({ students, fees, onAddTransaction, initialSt
   // Academic Tier Collection Progress Calculation
   const tierStats = React.useMemo(() => {
     const tiers = [
-      { key: 'pre', name: 'Pre-School (Pre 1-3)', match: (c: string) => c.startsWith('Pre') || c.startsWith('Prep') },
       { key: 'nursery', name: 'Nursery (Nursery 1-3)', match: (c: string) => c.startsWith('Nursery') },
-      { key: 'primary', name: 'Primary (Class 1-6)', match: (c: string) => c.startsWith('Class') },
+      { key: 'primary', name: 'Primary (Primary 1-6)', match: (c: string) => c.startsWith('Primary') },
       { key: 'jss', name: 'Junior Secondary (JSS 1-3)', match: (c: string) => c.startsWith('JSS') },
       { key: 'sss', name: 'Senior Secondary (SSS 1-3)', match: (c: string) => c.startsWith('SSS') },
-      { key: 'university', name: 'University & Tertiary', match: (c: string) => c.startsWith('University') },
     ];
 
     return tiers.map(tier => {
@@ -215,7 +218,7 @@ export default function Financials({ students, fees, onAddTransaction, initialSt
     // Suggest the remaining balance for the term
     const termBalance = sLedger?.terms[selectedTermFilter]?.balance || 0;
     setPaymentAmount(termBalance);
-    setPaymentReceipt(`NS-REC-${Math.floor(100000 + Math.random() * 900000)}`);
+    setPaymentReceipt(`JCC-REC-${Math.floor(100000 + Math.random() * 900000)}`);
     setPaymentSuccess(false);
     setPaymentError(null);
     setIsSubmittingPayment(false);
@@ -247,7 +250,7 @@ export default function Financials({ students, fees, onAddTransaction, initialSt
         date: new Date().toISOString().split('T')[0],
         amount: paymentAmount,
         paymentMethod,
-        receiptNumber: paymentReceipt || `NS-REC-${Date.now().toString().slice(-6)}`
+        receiptNumber: paymentReceipt || `JCC-REC-${Date.now().toString().slice(-6)}`
       });
 
       setTimeout(() => {
@@ -395,7 +398,7 @@ export default function Financials({ students, fees, onAddTransaction, initialSt
             </div>
           </div>
           <p className="text-[10px] text-slate-400 mt-3 flex items-center justify-between">
-            <span>Across Pre 1 to University tracks</span>
+            <span>Across Nursery 1 to SSS 3 classes</span>
             <span className="font-semibold text-slate-600 dark:text-slate-300">{activeStudents.length} Active Accounts</span>
           </p>
         </div>
@@ -655,7 +658,7 @@ export default function Financials({ students, fees, onAddTransaction, initialSt
             <tbody className="divide-y divide-slate-100 dark:divide-slate-800 font-medium text-slate-600 dark:text-slate-300">
               {filteredLedgers.map((ledger) => {
                 const student = students.find(s => s.id === ledger.studentId)!;
-                const termDetail = ledger.terms[selectedTermFilter] || { totalDue: 0, paidAmount: 0, balance: 0, status: 'Unpaid' as const };
+                const termDetail = ledger.terms[selectedTermFilter] || { totalDue: 0, paidAmount: 0, balance: 0, status: 'Unpaid' as const, transactions: [] };
                 
                 const badgeColor = termDetail.status === 'Paid' 
                   ? 'text-indigo-700 bg-indigo-50 border-indigo-100 dark:text-indigo-300 dark:bg-indigo-950/40 dark:border-indigo-900/50' 
@@ -735,10 +738,39 @@ export default function Financials({ students, fees, onAddTransaction, initialSt
                       </span>
                     </td>
 
-                    {/* Payment Trigger & SMS */}
+                    {/* Payment Trigger & Receipt Actions */}
                     <td className="py-3.5 px-5 text-right">
                       {termDetail.balance > 0 ? (
                         <div className="flex items-center justify-end gap-1.5">
+                          {termDetail.transactions && termDetail.transactions.length > 0 && (
+                            <button
+                              type="button"
+                              onClick={() => {
+                                const lastTx = termDetail.transactions[termDetail.transactions.length - 1];
+                                setSelectedReceiptForPrint({
+                                  receiptNumber: lastTx.receiptNumber,
+                                  date: lastTx.date,
+                                  studentName: student.name,
+                                  admissionNumber: student.admissionNumber,
+                                  studentClass: student.currentClass,
+                                  parentName: student.parentName,
+                                  parentPhone: student.parentPhone,
+                                  academicYear: '2025/2026',
+                                  term: selectedTermFilter,
+                                  amount: lastTx.amount,
+                                  paymentMethod: lastTx.paymentMethod || 'Orange Money',
+                                  totalDue: termDetail.totalDue,
+                                  balanceRemaining: termDetail.balance
+                                });
+                              }}
+                              className="inline-flex items-center gap-1 py-1 px-2 rounded-lg bg-teal-50 hover:bg-teal-100 dark:bg-teal-950/40 text-teal-700 dark:text-teal-300 font-bold text-[10px] border border-teal-200 dark:border-teal-800 cursor-pointer transition-colors"
+                              title="Print latest fee payment receipt"
+                            >
+                              <Receipt className="w-3 h-3" />
+                              <span>Receipt</span>
+                            </button>
+                          )}
+
                           <button
                             type="button"
                             onClick={() => {
@@ -754,15 +786,45 @@ export default function Financials({ students, fees, onAddTransaction, initialSt
 
                           <button
                             onClick={() => handleRecordPaymentClick(student.id)}
-                            className="inline-flex items-center gap-1 py-1 px-2.5 rounded-lg bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-[10px] shadow-xs cursor-pointer transition-colors"
+                            className="inline-flex items-center gap-1 py-1 px-2.5 rounded-lg bg-teal-600 hover:bg-teal-700 text-white font-bold text-[10px] shadow-xs cursor-pointer transition-colors"
                           >
                             <PlusCircle className="w-3 h-3" /> Post Pay
                           </button>
                         </div>
                       ) : (
-                        <span className="text-[10px] text-slate-400 font-semibold flex items-center justify-end gap-1">
-                          <Check className="w-3.5 h-3.5 text-indigo-500" /> Accounts Cleared
-                        </span>
+                        <div className="flex items-center justify-end gap-2">
+                          {termDetail.transactions && termDetail.transactions.length > 0 && (
+                            <button
+                              type="button"
+                              onClick={() => {
+                                const lastTx = termDetail.transactions[termDetail.transactions.length - 1];
+                                setSelectedReceiptForPrint({
+                                  receiptNumber: lastTx.receiptNumber,
+                                  date: lastTx.date,
+                                  studentName: student.name,
+                                  admissionNumber: student.admissionNumber,
+                                  studentClass: student.currentClass,
+                                  parentName: student.parentName,
+                                  parentPhone: student.parentPhone,
+                                  academicYear: '2025/2026',
+                                  term: selectedTermFilter,
+                                  amount: lastTx.amount,
+                                  paymentMethod: lastTx.paymentMethod || 'Orange Money',
+                                  totalDue: termDetail.totalDue,
+                                  balanceRemaining: 0
+                                });
+                              }}
+                              className="inline-flex items-center gap-1 py-1 px-2.5 rounded-lg bg-teal-50 hover:bg-teal-100 dark:bg-teal-950/40 text-teal-700 dark:text-teal-300 font-bold text-[10px] border border-teal-200 dark:border-teal-800 cursor-pointer transition-colors"
+                              title="Print official payment receipt"
+                            >
+                              <Printer className="w-3 h-3" />
+                              <span>Official Receipt</span>
+                            </button>
+                          )}
+                          <span className="text-[10px] text-teal-600 dark:text-teal-400 font-semibold flex items-center gap-1">
+                            <Check className="w-3.5 h-3.5" /> Cleared
+                          </span>
+                        </div>
                       )}
                     </td>
                   </tr>
@@ -970,6 +1032,13 @@ export default function Financials({ students, fees, onAddTransaction, initialSt
         fees={fees}
         initialSelectedTerm={selectedTermFilter}
         initialStudentId={smsTargetStudentId}
+      />
+
+      {/* Official Printable Fee Receipt Modal */}
+      <OfficialReceiptModal
+        isOpen={Boolean(selectedReceiptForPrint)}
+        onClose={() => setSelectedReceiptForPrint(null)}
+        receipt={selectedReceiptForPrint}
       />
     </div>
   );

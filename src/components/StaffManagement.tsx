@@ -104,7 +104,7 @@ export default function StaffManagement({ students, onNavigate }: StaffManagemen
   const [assignTitle, setAssignTitle] = useState('');
   const [assignDesc, setAssignDesc] = useState('');
   const [assignSubject, setAssignSubject] = useState('');
-  const [assignClass, setAssignClass] = useState<StudentClass>('Class 1');
+  const [assignClass, setAssignClass] = useState<StudentClass>('Primary 1');
   const [assignDueDate, setAssignDueDate] = useState('');
   const [assignMaxPoints, setAssignMaxPoints] = useState(100);
   const [assignAttachmentName, setAssignAttachmentName] = useState('');
@@ -308,7 +308,7 @@ ${sub.feedback || 'Pending educator grading and remarks.'}
     setFormEmail('');
     setFormPhone('');
     setFormSubjects('');
-    setFormClasses(['Class 1']);
+    setFormClasses(['Primary 1']);
     setFormSalary(3500000);
     setFormHireDate(new Date().toISOString().substring(0, 10));
     setFormPayroll('Unpaid');
@@ -402,7 +402,7 @@ ${sub.feedback || 'Pending educator grading and remarks.'}
     setAssignTitle('');
     setAssignDesc('');
     setAssignSubject(teacher?.subjects[0] || 'Mathematics');
-    setAssignClass(teacher?.classes[0] || 'Class 1');
+    setAssignClass(teacher?.classes[0] || 'Primary 1');
     setAssignDueDate(new Date(Date.now() + 5 * 24 * 60 * 60 * 1000).toISOString().substring(0, 10)); // 5 days out
     setAssignMaxPoints(100);
     setAssignAttachmentName('');

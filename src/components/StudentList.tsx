@@ -371,7 +371,7 @@ export default function StudentList({
     } else {
       // Create
       const newId = `stud-${Date.now()}`;
-      const admissionNum = `NS-${formEnrollmentYear}-${Math.floor(1000 + Math.random() * 9000)}`;
+      const admissionNum = `JCC-${formEnrollmentYear}-${Math.floor(1000 + Math.random() * 9000)}`;
       const isNowVerified = canVerify ? formVerified : false;
       const newStudent: Student = {
         id: newId,
@@ -836,15 +836,6 @@ export default function StudentList({
                 <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-xl bg-indigo-50 text-indigo-700 font-semibold border border-indigo-100">
                   Stream: {selectedStream}
                   <button onClick={() => setSelectedStream('All')} className="hover:text-indigo-900 cursor-pointer ml-0.5">
-                    <X className="w-3 h-3" />
-                  </button>
-                </span>
-              )}
-
-              {selectedProgram !== 'All' && (
-                <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-xl bg-emerald-50 text-emerald-700 font-semibold border border-emerald-100">
-                  Program: {selectedProgram}
-                  <button onClick={() => setSelectedProgram('All')} className="hover:text-emerald-900 cursor-pointer ml-0.5">
                     <X className="w-3 h-3" />
                   </button>
                 </span>
@@ -1827,10 +1818,8 @@ export default function StudentList({
                 {/* Header */}
                 <div className="flex flex-col md:flex-row justify-between items-center text-center md:text-left border-b-2 border-slate-800 pb-5 gap-4">
                   <div className="flex flex-col md:flex-row items-center gap-4">
-                    <div className="w-16 h-16 rounded-2xl bg-slate-900 flex flex-col items-center justify-center text-white border-2 border-slate-800 font-bold shrink-0 relative overflow-hidden">
-                      <span className="text-[10px] tracking-tight text-indigo-400 font-mono">GWM</span>
-                      <span className="text-[7px] text-slate-400 font-sans uppercase text-center leading-tight">Givers</span>
-                      <div className="absolute bottom-0 left-0 h-1 bg-indigo-500 w-full"></div>
+                    <div className="w-16 h-16 rounded-2xl bg-white p-1 flex flex-col items-center justify-center border-2 border-slate-200 shrink-0 relative overflow-hidden shadow-xs">
+                      <img src="/logo.jpg" alt="Jonathan's Child Care Logo" className="w-full h-full object-contain" />
                     </div>
                     
                     <div className="space-y-1">

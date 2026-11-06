@@ -127,7 +127,7 @@ export default function GlobalHeader({
               setIsOpen(true);
             }}
             onFocus={() => setIsOpen(true)}
-            placeholder="Search student by name or ID number (e.g., Fatmata, GWM-2024-001)..."
+            placeholder="Search student by name or ID number (e.g., Fatmata, JCC-2024-001)..."
             className="w-full pl-10 pr-20 py-2 bg-slate-100/80 dark:bg-slate-800/80 text-slate-800 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-500 rounded-xl text-xs sm:text-sm font-medium border border-transparent focus:border-indigo-500 focus:bg-white dark:focus:bg-slate-900 focus:outline-none transition-all shadow-xs"
             id="global-student-search-input"
           />
@@ -303,7 +303,7 @@ export default function GlobalHeader({
                     No matching student found for "{searchQuery}"
                   </p>
                   <p className="text-[11px] text-slate-400">
-                    Try searching by full name, first name, or admission number (e.g., GWM-2024-001)
+                    Try searching by full name, first name, or admission number (e.g., JCC-2024-001)
                   </p>
                 </div>
               )}

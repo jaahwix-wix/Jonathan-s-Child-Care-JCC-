@@ -197,8 +197,7 @@ export default function ReportCardView({ students, records, onNavigateBack, init
               <p className="text-slate-400 font-bold text-[9px] uppercase tracking-wider">Current Grade/Class</p>
               <p className="font-bold text-slate-800">
                 {student.currentClass}
-                {student.universityProgram ? ` (${student.universityProgram} Program)` : ''}
-                {student.stream && !student.universityProgram ? ` (${student.stream} Stream)` : ''}
+                {student.stream ? ` (${student.stream} Stream)` : ''}
                 {student.classSection ? ` - ${student.classSection}` : ''}
               </p>
             </div>
@@ -359,7 +358,7 @@ export default function ReportCardView({ students, records, onNavigateBack, init
             <div className="text-center w-1/2 relative">
               {/* Virtual stamp placeholder */}
               <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-14 h-14 rounded-full border-2 border-indigo-500/30 flex items-center justify-center rotate-12 text-[8px] text-indigo-500/40 font-black pointer-events-none uppercase">
-                GWM Stamp
+                JCC Stamp
               </div>
               <div className="h-8 border-b border-slate-400/80 w-32 mx-auto"></div>
               <p className="mt-1 font-bold text-slate-700">{SCHOOL_INFO.principalName}</p>

@@ -187,7 +187,7 @@ export default function DataBackup({ students, records, examPreps, fees, onResto
   const handleExport = () => {
     try {
       const dataToExport = {
-        app: 'Givers World Mission School Records Manager',
+        app: "Jonathan's Child Care (JCC) Records Manager",
         version: '1.0.0',
         timestamp: new Date().toISOString(),
         payload: {
@@ -735,7 +735,7 @@ export default function DataBackup({ students, records, examPreps, fees, onResto
         const json = JSON.parse(event.target?.result as string);
         
         // Validation checks
-        if (!['Givers World Mission School Records Manager', 'Naiahcom School Records Manager', 'Salone Model Academy Records Manager'].includes(json.app) || !json.payload) {
+        if (!["Jonathan's Child Care (JCC) Records Manager", 'Givers World Mission School Records Manager', 'Naiahcom School Records Manager', 'Salone Model Academy Records Manager'].includes(json.app) || !json.payload) {
           throw new Error('Invalid backup file signature.');
         }
 

@@ -67,8 +67,8 @@ export default function AcademicPortal({
   // --- Sub-State for Marks Entry ---
   const [selectedClass, setSelectedClass] = useState<StudentClass>(
     initialSelectedStudentId 
-      ? (students.find(s => s.id === initialSelectedStudentId)?.currentClass || 'Class 1')
-      : 'Class 1'
+      ? (students.find(s => s.id === initialSelectedStudentId)?.currentClass || 'Primary 1')
+      : 'Primary 1'
   );
   
   const classStudents = students.filter(s => s.currentClass === selectedClass && s.status === 'Active');
@@ -298,10 +298,10 @@ export default function AcademicPortal({
   const [examSearch, setExamSearch] = useState('');
   const [selectedExamFilter, setSelectedExamFilter] = useState<'All' | 'NPSE' | 'BECE' | 'WASSCE'>('All');
   
-  // Candidates are JSS 3, SSS 3, Class 6
+  // Candidates are JSS 3, SSS 3, Primary 6
   const milestoneStudents = students.filter(s => 
     s.status === 'Active' && 
-    (s.currentClass === 'Class 6' || s.currentClass === 'JSS 3' || s.currentClass === 'SSS 3')
+    (s.currentClass === 'Primary 6' || s.currentClass === 'JSS 3' || s.currentClass === 'SSS 3')
   );
 
   // Filter exam preps
@@ -340,7 +340,7 @@ export default function AcademicPortal({
     updated[idx].mockScore = Math.max(0, Math.min(100, score));
     
     // Automatically recalculate mock grade
-    const classLevel = prepStudent?.currentClass || 'Class 6';
+    const classLevel = prepStudent?.currentClass || 'Primary 6';
     const { grade } = calculateGrade(updated[idx].mockScore, classLevel);
     updated[idx].grade = grade;
     
@@ -1105,14 +1105,14 @@ export default function AcademicPortal({
                 {milestoneStudents
                   .filter(s => {
                     const matchesType = selectedExamFilter === 'All' || 
-                      (selectedExamFilter === 'NPSE' && s.currentClass === 'Class 6') ||
+                      (selectedExamFilter === 'NPSE' && s.currentClass === 'Primary 6') ||
                       (selectedExamFilter === 'BECE' && s.currentClass === 'JSS 3') ||
                       (selectedExamFilter === 'WASSCE' && s.currentClass === 'SSS 3');
                     const matchesSearch = s.name.toLowerCase().includes(examSearch.toLowerCase());
                     return matchesType && matchesSearch;
                   })
                   .map(s => {
-                    const examType = s.currentClass === 'Class 6' ? 'NPSE' : s.currentClass === 'JSS 3' ? 'BECE' : 'WASSCE';
+                    const examType = s.currentClass === 'Primary 6' ? 'NPSE' : s.currentClass === 'JSS 3' ? 'BECE' : 'WASSCE';
                     const hasPrep = examPreps.some(ep => ep.studentId === s.id);
                     
                     return (
